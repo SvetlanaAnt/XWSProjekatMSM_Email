@@ -22,11 +22,12 @@ public class EmailServiceImpl implements EmailService {
     @Autowired
     private Environment environment;
 
+    ObjectMapper objectMapper = new ObjectMapper();
+
     @Override
     @Async
     @RabbitListener(queues = RabbitMQConfiguration.QUEUE_NAME)
     public void sendMailTo(String msg) {
-        ObjectMapper objectMapper = new ObjectMapper();
         try {
             EmailDTO emailDTO = objectMapper.readValue(msg, EmailDTO.class);
             SimpleMailMessage mail = new SimpleMailMessage();
