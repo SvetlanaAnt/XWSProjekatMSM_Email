@@ -16,7 +16,7 @@
 
     <properties>
         <java.version>1.8</java.version>
-        <app.name>authentication-service</app.name>
+        <app.name>email-service</app.name>
     </properties>
 
     <dependencies>
